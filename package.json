@@ -1,6 +1,6 @@
 {
-  "name": "electron-webpack-quick-start",
-  "version": "1.0.1",
+  "name": "vitalplayer",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "dist/main/main.js",
   "repository": {
@@ -10,8 +10,6 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "yarn compile && electron-builder",
-    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
     "build": "electron-webpack && electron-builder build --win --publish never",
     "deploy": "electron-webpack && electron-builder build --win --publish always"
   },
@@ -23,7 +21,14 @@
     "electron": "8.2.0",
     "electron-builder": "^22.4.1",
     "electron-webpack": "^2.8.2",
-    "webpack": "~4.42.1"
+    "webpack": "~4.42.1",
+    "chrome-paths": "^1.0.1",
+    "hls.js": "^1.1.5-0.canary.8262",
+    "puppeteer-core": "^13.4.1",
+    "uuid": "^8.3.2",
+    "youtube-dl-exec": "^2.0.7",
+    "lowdb": "^1.0.0",
+    "node-fetch": "^2.6.0"
   },
   "build": {
     "appId": "com.vitalplayer.ElectronAutoUpdate",

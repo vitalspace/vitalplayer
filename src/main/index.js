@@ -5,13 +5,25 @@ import * as path from 'path'
 import { format as formatUrl } from 'url'
 import { autoUpdater } from "electron-updater";
 
+import "../electron/saveList/saveList";
+import "../electron/showLists/showLists";
+import "../electron/showList/showList";
+import "../electron/showVideo/showVideo";
+import "../electron/delteList/deleteList";
+import { db_cotroller } from "../database/database";
+db_cotroller.createConnection()
+
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow
 
 function createMainWindow() {
-  const window = new BrowserWindow({webPreferences: {nodeIntegration: true}})
+  const window = new BrowserWindow({
+    autoHideMenuBar: true,
+    webPreferences: {nodeIntegration: true}
+  })
 
   if (isDevelopment) {
     // window.webContents.openDevTools()
@@ -64,9 +76,9 @@ app.on('ready', () => {
 })
 
 
-ipcMain.on('app_version', (event) => {
-  event.sender.send('app_version', { version: app.getVersion() });
-});
+// ipcMain.on('app_version', (event) => {
+//   event.sender.send('app_version', { version: app.getVersion() });
+// });
 
 autoUpdater.on('update-available', () => {
   mainWindow.webContents.send('update_available');
