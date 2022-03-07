@@ -1,6 +1,6 @@
 {
   "name": "electron-webpack-quick-start",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/main/main.js",
   "repository": {
@@ -13,7 +13,7 @@
     "dist": "yarn compile && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
     "build": "electron-webpack && electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
+    "deploy": "electron-webpack && electron-builder build --win --publish always"
   },
   "dependencies": {
     "source-map-support": "^0.5.16",
@@ -24,5 +24,11 @@
     "electron-builder": "^22.4.1",
     "electron-webpack": "^2.8.2",
     "webpack": "~4.42.1"
-  }
+  },
+  "build": {
+    "appId": "com.vitalplayer.ElectronAutoUpdate",
+    "win": {
+      "target": "nsis"
+    }
+ }
 }
