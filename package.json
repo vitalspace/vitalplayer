@@ -1,39 +1,44 @@
 {
   "name": "vitalplayer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "dist/main/main.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/vitalspace/vitalplayer.git"
+    "type": "git",
+    "url": "https://github.com/vitalspace/vitalplayer.git"
   },
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "build": "electron-webpack && electron-builder build --win --publish never",
+    "build": "electron-webpack && electron-builder build --win --x64 --publish never",
     "deploy": "electron-webpack && electron-builder build --win --publish always"
   },
   "dependencies": {
+    "app-root-dir": "^1.0.2",
+    "electron-updater": "^4.0.6",
     "source-map-support": "^0.5.16",
-    "electron-updater": "^4.0.6"
+    "youtube-dl-exec": "^2.0.7"
   },
   "devDependencies": {
+    "chrome-paths": "^1.0.1",
     "electron": "8.2.0",
     "electron-builder": "^22.4.1",
+    "electron-prebuilt-compile": "4.0.0",
     "electron-webpack": "^2.8.2",
-    "webpack": "~4.42.1",
-    "chrome-paths": "^1.0.1",
     "hls.js": "^1.1.5-0.canary.8262",
+    "lowdb": "^1.0.0",
+    "node-fetch": "^2.6.0",
     "puppeteer-core": "^13.4.1",
     "uuid": "^8.3.2",
-    "youtube-dl-exec": "^2.0.7",
-    "lowdb": "^1.0.0",
-    "node-fetch": "^2.6.0"
+    "webpack": "~4.42.1"
   },
   "build": {
+    "asarUnpack": [
+      "**/app/node_modules/youtube-dl-exec/*"
+    ],
     "appId": "com.vitalplayer.ElectronAutoUpdate",
     "win": {
       "target": "nsis"
     }
- }
+  }
 }

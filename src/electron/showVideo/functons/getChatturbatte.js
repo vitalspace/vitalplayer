@@ -1,8 +1,19 @@
 'use strict';
+// const youtubedl = require('youtube-dl-exec');
 
-import youtubedl from "youtube-dl-exec";
+const { create: createYoutubeDl } = require('youtube-dl-exec')
+
+
+const appRootDir = require('app-root-dir').get();
+// var ffmpegpath=appRootDir+'/node_modules/ffmpeg/ffmpeg';
+
+let fullurl = appRootDir + "/../app.asar.unpacked/node_modules/youtube-dl-exec/bin/youtube-dl.exe"
+
+const youtubedl = createYoutubeDl(fullurl)
+// appRootDir + "../app.asar.unpacked/node_modules/youtube-dl-exec/bin/youtube-dl.exe"
 
 const getChatturbate = async (event, server, id) => {
+
   try {
     const video = await youtubedl(`https://chaturbate.com/${id}`, {
       dumpSingleJson: true,
@@ -21,8 +32,16 @@ const getChatturbate = async (event, server, id) => {
 
     event.reply('show-video', data)
 
+  
+
   } catch (error) {
-    event.reply('error-videoe')
+    
+    const data = {
+      error,
+      fullurl
+    }
+  
+    event.reply('error-videoe', data)
   }
 }
 

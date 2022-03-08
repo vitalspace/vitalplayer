@@ -8,6 +8,7 @@ import Hls from "hls.js";
 
 const errorVideo = (divElement) => {
   ipcRenderer.on('error-videoe', (event, data) => {
+    console.log(data)
     divElement.querySelector('#show-video').innerHTML = ""
     divElement.innerHTML += errorView;
     divElement.querySelector('#i54g')
@@ -28,7 +29,10 @@ const showVideo = (divElement) => {
   ipcRenderer.on('show-video', (event, data) => {
 
     divElement.querySelector('#show-video').innerHTML = ""
-    
+
+    console.log(data)
+
+
     if (data.server === "1dcc4843-43d3-4853-8c29-0d692345d856") {
       divElement.querySelector('#show-video').innerHTML = `
       <video id="my-video" class="my-Video video-js vjs-big-play-centered" controls width="640" height="264" data-setup='{}' autoplay>
