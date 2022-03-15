@@ -1,7 +1,7 @@
 'use strict';
 
 import { Menu } from "../menu/menu";
-import { showList } from "./functions/showList";
+import { showList, shearch } from "./functions/showList";
 import { View } from "./view/view";
 
 const ViewList = () => {
@@ -10,6 +10,7 @@ const ViewList = () => {
     divElement.innerHTML += Menu;
     divElement.innerHTML += View;
     showList(divElement)
+    shearch(divElement);
     return divElement;
 }
 
