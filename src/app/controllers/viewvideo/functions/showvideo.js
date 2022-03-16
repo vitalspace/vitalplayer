@@ -1,10 +1,13 @@
 'use strict'
 
-import { errorView } from "../view/error_video";
+import Hls from "hls.js";
+import DashShakaPlayback from "dash-shaka-playback";
+import Clappr from "clappr";
 
 import { ipcRenderer } from "electron";
+import { errorView } from "../view/error_video";
 
-import Hls from "hls.js";
+
 
 const errorVideo = (divElement) => {
   ipcRenderer.on('error-videoe', (event, data) => {
@@ -29,8 +32,6 @@ const showVideo = (divElement) => {
   ipcRenderer.on('show-video', (event, data) => {
 
     divElement.querySelector('#show-video').innerHTML = ""
-
-    console.log(data)
 
 
     if (data.server === "1dcc4843-43d3-4853-8c29-0d692345d856") {
@@ -70,6 +71,44 @@ const showVideo = (divElement) => {
         });
       }
     }
+
+    if (data.server === 'c3f4b3b5-44b4-44bc-b99b-089b217edb49') {
+      divElement.querySelector('#show-video').innerHTML = `
+
+      <head>
+      <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+    </head>
+        <style> 
+          #player { 
+          width: 100%;
+          height: -webkit-fill-available;
+          }
+        </style>
+        <div id="player"></div>
+      `
+      var player = new Clappr.Player(
+        {
+          source: data.url,
+          height: "1000px",
+          width: "auto",
+          plugins: [DashShakaPlayback],
+          shakaConfiguration: {
+            preferredAudioLanguage: 'pt-BR',
+            streaming: {
+              rebufferingGoal: 15
+            }
+          },
+          shakaOnBeforeLoad: function(shaka_player) {
+            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
+          },
+          parentId: '#player'
+        });
+    }
+
+
+
+
   })
 
 
