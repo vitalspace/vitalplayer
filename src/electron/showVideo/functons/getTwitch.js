@@ -21,7 +21,7 @@ const getTwitch = async (event, server, id) => {
 
     const data = {
       server,
-      url: video.formats[3].url
+      url: video.formats[2].url
     }
 
     event.reply('show-video', data)
