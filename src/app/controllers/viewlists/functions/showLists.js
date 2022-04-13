@@ -4,6 +4,17 @@ import { ipcRenderer } from "electron";
 import { deteList } from "./deleteList";
 
 const showLists = async (divElement) => {
+
+  if (window.localStorage) {
+    if (!localStorage.getItem('firstLoad')) {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem('firstLoad');
+  }
+
+
   ipcRenderer.send('give-me-the-lists', { showlist: true })
   ipcRenderer.on('show-lists', async (e, a) => {
     a.map(e => {

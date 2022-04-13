@@ -13,7 +13,6 @@ import "../electron/delteList/deleteList";
 import { db_cotroller } from "../database/database";
 db_cotroller.createConnection()
 
-
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)

@@ -6,10 +6,9 @@ import { constants } from '../contants/constants';
 let content = document.querySelector('#app');
 
 const routers = async (router) => {
-
     content.innerHTML = '';
     console.clear();
-    console.log(router);
+    // console.log(router);
 
     if (router[0] === constants.null && router[1] == null) content.appendChild( await states.Index());
     if (router[0] === constants.null && router[1] === constants.index) content.appendChild(states.Index());

@@ -3,14 +3,19 @@
 import { ipcRenderer } from "electron";
 import Fuse from 'fuse.js'
 
+(function () {
+})();
 
 const showList = (divElement) => {
 
   const url = window.location.hash.substr(1).split("#")[1]
-  ipcRenderer.send('show-me-the-list', url)
+  const type = window.location.hash.substr(1).split("#")[2]
+
+
+  const data = { url, type }
+  ipcRenderer.send('show-me-the-list', data)
 
   ipcRenderer.on('show-list', (e, a) => {
-
     divElement.querySelector('#show-list').innerHTML = ``
 
     a.map(e => {
@@ -65,7 +70,7 @@ const shearch = (divElement) => {
         console.log(filterList)
         divElement.querySelector('#ix0xz').innerHTML = ``
 
-        divElement.querySelector('#i82f').style ="display: none;"
+        divElement.querySelector('#i82f').style = "display: none;"
 
         filterList.map(elm => {
           divElement.querySelector('#ix0xz').innerHTML += `
@@ -80,7 +85,7 @@ const shearch = (divElement) => {
         })
       } else {
         document.querySelector('#irwxj').style = "display: none;"
-        divElement.querySelector('#i82f').style ="display: inherit;"
+        divElement.querySelector('#i82f').style = "display: inherit;"
 
       }
     })

@@ -75,11 +75,10 @@ const showVideo = (divElement) => {
 
     if (data.server === constants.plutotv) {
       divElement.querySelector('#show-video').innerHTML = `
-
       <head>
-      <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
-    </head>
+        <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+      </head>
         <style> 
           #player { 
           width: 100%;
@@ -100,7 +99,7 @@ const showVideo = (divElement) => {
               rebufferingGoal: 15
             }
           },
-          shakaOnBeforeLoad: function(shaka_player) {
+          shakaOnBeforeLoad: function (shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
           },
           parentId: '#player'
@@ -156,6 +155,37 @@ const showVideo = (divElement) => {
         hls.attachMedia(video);
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
           video.muted = true;
+          video.play();
+        });
+      }
+      else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = data.url;
+        video.addEventListener('canplay', function () {
+          video.play();
+        });
+      }
+    }
+
+
+    if (data.server === constants.vk) {
+      divElement.querySelector('#show-video').innerHTML = `
+        <style> 
+          #video { 
+          width: 100%;
+          height: -webkit-fill-available;
+          }
+        </style>
+        <video id="video" controls></video>
+      `
+      let video = document.querySelector('video');
+      if (Hls.isSupported()) {
+        let hls = new Hls({
+          // debug: true,
+        });
+        hls.loadSource(data.c);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+          // video.muted = true;
           video.play();
         });
       }

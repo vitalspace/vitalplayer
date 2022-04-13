@@ -1,27 +1,59 @@
 {
   "list": [
     {
-      "id": "dd246d68-378d-4be7-bd48-6416cfc64870",
-      "a": {
-        "name": "2005",
-        "img": "https://img.repelis.id/cover/feast-atrapados-1603837207.jpg",
-        "url": "https://gist.githubusercontent.com/vitalspace/4ef060bb903604170f7917c8fc1a2aa3/raw/765556c5ca5af45ec0de6bb638489229c49f8780/gistfile2.json"
-      }
-    },
-    {
-      "id": "6cc5dca3-5f92-4831-9797-861e1db42553",
-      "a": {
-        "name": "asdsad",
-        "img": "asdasd",
-        "url": "https://gist.githubusercontent.com/vitalspace/c06b68c4593e3239584710d906d1fb83/raw/d709efc25b39a3f8695dbfd9145e54b6e0c1ca91/gistfile1.json"
-      }
-    },
-    {
       "id": "9cbf0d11-6bae-4c81-bf54-df1670e24fa0",
       "a": {
         "name": "tv1",
         "img": ";ksajdlkasd",
         "url": "https://gist.githubusercontent.com/vitalspace/d1cad2ff860ea9cf0b8ef7df6455625b/raw/206b5738b19be90f39a1e2419a6608cb95a21f6e/tv1.json"
+      }
+    },
+    {
+      "id": "530ef62e-1a7a-4eca-98ed-e056a9b071ee",
+      "a": {
+        "name": "tv3",
+        "img": "cvbcvb",
+        "url": "https://gist.githubusercontent.com/vitalspace/32db3083ecb8e83fcf5c20221cf6d215/raw/06e0e324305b4427969c0549cb5d1c41aa04adfa/tv3.json/#61897eba-d69b-49a3-b33d-568b880a1c66"
+      }
+    },
+    {
+      "id": "a23ac03e-e148-4248-b503-4b9aea68fdea",
+      "a": {
+        "name": "2020",
+        "img": "kjhk",
+        "url": "https://gist.githubusercontent.com/vitalspace/0056263f233237435f3fa715c0be302a/raw/e32892cf483f8b970a41f8bbe4014b925af1b3e6/lista2020.json"
+      }
+    },
+    {
+      "id": "881afed9-90c8-43d4-ac45-3c949bf2d1e0",
+      "a": {
+        "name": "2022 Special",
+        "img": "sdfsdf",
+        "url": "https://gist.githubusercontent.com/vitalspace/0056263f233237435f3fa715c0be302a/raw/e32892cf483f8b970a41f8bbe4014b925af1b3e6/lista2020.json/#1a4bb69f-504a-487e-929e-b84fd14cf2b0"
+      }
+    },
+    {
+      "id": "337ccbea-c539-4beb-9aef-fa32417183cf",
+      "a": {
+        "name": "xcvxcvxcv",
+        "img": "xcv",
+        "url": "https://pastebin.com/raw/Vqr5kD9g#1a4bb69f-504a-487e-929e-b84fd14cf2b0"
+      }
+    },
+    {
+      "id": "da3b0227-2883-4d97-bbe3-2dedc8659264",
+      "a": {
+        "name": "halo",
+        "img": "cvbcvb",
+        "url": "https://pastebin.com/raw/Vqr5kD9g#1a4bb69f-504a-487e-929e-b84fd14cf2b0"
+      }
+    },
+    {
+      "id": "c581ed89-362d-4f12-9e32-e50456507531",
+      "a": {
+        "name": "DEPORTES",
+        "img": "CVB",
+        "url": "https://gist.githubusercontent.com/vitalspace/32db3083ecb8e83fcf5c20221cf6d215/raw/tv3.json#1a4bb69f-504a-487e-929e-b84fd14cf2b0"
       }
     }
   ]

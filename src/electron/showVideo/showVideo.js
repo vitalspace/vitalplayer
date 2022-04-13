@@ -6,6 +6,7 @@ import { getChatturbate } from "./functons/getChatturbatte";
 import { getPlutoTv } from "./functons/getPlutoTv";
 import { getTwitch } from "./functons/getTwitch";
 import { getOk } from "./functons/getOk";
+import { getVk } from "./functons/getVk";
 
 ipcMain.on('show-me-the-video', async (e, a) => {
     
@@ -14,20 +15,24 @@ ipcMain.on('show-me-the-video', async (e, a) => {
     }
 
     if (a.server === servers.chatturbate) {
-        await getChatturbate(e, a.server, a.id)
+        await getChatturbate(e, a.server, a.id);
     }
 
     if (a.server === servers.plutotv) {
-        await getPlutoTv(e, a.server, a.id)
+        await getPlutoTv(e, a.server, a.id);
     }
 
     if (a.server === servers.twith) {
-        await getTwitch(e, a.server, a.id)
+        await getTwitch(e, a.server, a.id);
     }
 
-    
     if (a.server === servers.ok) {
-        await getOk(e, a.server, a.id)
+        await getOk(e, a.server, a.id);
     }
+
+    if (a.server === servers.vk) {
+        await getVk(e, a.server, a.id);
+    }
+
 
 })
